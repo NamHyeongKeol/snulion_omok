@@ -5,7 +5,9 @@
 
 ## 주어진 것
 * 검은돌
+```
     <button class="black stone"></button>
+```
 * 흰돌
     <button class="white stone"></button>
 * 투명한 검은돌
