@@ -3,17 +3,38 @@
     <div class="col s12 center">
       <h1>초간단 오목 만들기</h1>
     </div>
+
+    <!-- 오목판 -->
     <div class="col s12 center">
       <div class="omok_table">
         <% for i in 0..15 %>
           <div class="go-row">
             <% for j in 0..15 %>
-              <div class="go-cell" data-row="<%= i %>" data-col="<%= j %>"></div>
+              <!-- 오목판 한칸을 뜻하는 div -->
+              <div class="go-cell" data-occupied="false"></div>
             <% end %>
           </div>
           <br>
         <% end %>
-      </table>
+      </div>
     </div>
+
   </div>
 </div>
+
+<!-- U should modify below script only -->
+<script>
+  $(document).ready(function(){
+    var stone_colors = ['black', 'white'];
+    var color_index = 0;
+    $('.go-cell').click(function(){
+      console.log($(this).data('occupied'))
+      if (!$(this).data('occupied')) {
+        $(this).append('<button class="'+stone_colors[color_index]+' stone"></button>');
+        $(this).data('occupied', true);
+        console.log($(this).data('occupied'))
+        color_index = (color_index + 1) % 2;
+      };
+    });
+  });
+</script>
