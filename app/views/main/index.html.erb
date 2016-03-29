@@ -30,10 +30,21 @@
     $('.go-cell').click(function(){
       console.log($(this).data('occupied'))
       if (!$(this).data('occupied')) {
+        $(this).empty();
         $(this).append('<button class="'+stone_colors[color_index]+' stone"></button>');
         $(this).data('occupied', true);
         console.log($(this).data('occupied'))
         color_index = (color_index + 1) % 2;
+      };
+    });
+    $('.go-cell').mouseenter(function(){
+      if (!$(this).data('occupied')) {
+        $(this).append('<button class="semi_'+stone_colors[color_index]+' stone"></button>');
+      };
+    });
+    $('.go-cell').mouseleave(function(){
+      if (!$(this).data('occupied')) {
+        $(this).empty();
       };
     });
   });
