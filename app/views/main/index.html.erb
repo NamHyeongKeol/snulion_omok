@@ -26,26 +26,4 @@
   U should modify below script only
 -->
 <script>
-  $(document).ready(function(){
-    var stone_colors = ['black', 'white']; // array of stone colors
-    var color_index = 0; // index for stone_colors, this variable can be 0 or 1
-    $('.go-cell').click(function(){ // user clicked a cell
-      if (!$(this).data('occupied')) { // check if there exists a stone in this cell
-        $(this).empty(); // remove 'semi stone'
-        $(this).append('<button class="'+stone_colors[color_index]+' stone"></button>'); // put a stone in this cell
-        $(this).data('occupied', true); // mark this cell as a occupied cell
-        color_index = (color_index + 1) % 2; // switch index
-      };
-    });
-    $('.go-cell').mouseenter(function(){ // user placed the mouse over a cell
-      if (!$(this).data('occupied')) { // check if there exists a stone in this cell
-        $(this).append('<button class="semi_'+stone_colors[color_index]+' stone"></button>'); // put a 'semi stone' in this cell
-      };
-    });
-    $('.go-cell').mouseleave(function(){ // user's mouse left a cell
-      if (!$(this).data('occupied')) { // check if there exists a stone in this cell
-        $(this).empty(); // empty this cell
-      };
-    });
-  });
 </script>
